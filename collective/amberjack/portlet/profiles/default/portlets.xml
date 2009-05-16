@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="collective.amberjack.portlet.AmberjackStartPortlet"
+   title="Amberjack start portlet"
+   description="the portlet for starting an amberjack demo"
+   />
+
+</portlets>

@@ -1,0 +1,26 @@
+<dl class="portlet portletAmberjackStartPortlet"
+    i18n:domain="collective.amberjack.portlet">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        Run the demo
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+    	<!-- -->
+		<tal:defaults define="	startUrl string:http://localhost:8080/plone?tourId=p4aTour&amp;skinId=safari;
+								image string:http://localhost:8080/plone/amberjack.png">
+        	<a tal:attributes="href startUrl">
+        		<img alt="Click to start tour!" tal:attributes="src image"/>
+			</a>
+		</tal:defaults>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        &nbsp;
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
