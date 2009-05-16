@@ -6,6 +6,7 @@ from plone.app.portlets.portlets import base
 from zope import schema
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from collective.amberjack.portlet.vocabulary import vocabulary
 
 from collective.amberjack.portlet import AmberjackStartPortletMessageFactory as _
 
@@ -23,9 +24,18 @@ class IAmberjackStartPortlet(IPortletDataProvider):
     # empty interface - see also notes around the add form and edit form
     # below.
 
-    # some_field = schema.TextLine(title=_(u"Some field"),
-    #                              description=_(u"A field to use"),
-    #                              required=True)
+    tourId = schema.TextLine(title=_(u"Tour identifier"),
+                                 description=_(u"Indicate the tour's identifier you want to run on this portlet"),
+                                 required=True)
+    
+
+    skinId = schema.Choice(title=_(u"Choose the skin"),
+                              description=_(u"Indicate the tour's window layout"),
+                              vocabulary=vocabulary([("safari", "Safari"),
+                                                     ("model_t", "Model_T")
+                                                     ]),
+                              default = 'safari')
+
 
 
 class Assignment(base.Assignment):
@@ -45,15 +55,18 @@ class Assignment(base.Assignment):
     # def __init__(self, some_field=u""):
     #    self.some_field = some_field
 
-    def __init__(self):
-        pass
+    
+    def __init__(self, tourId, skinId):
+        self.tourId = tourId
+        self.skinId = skinId
+
 
     @property
     def title(self):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u"Amberjack start portlet")
+        return _(u"Amberjack start portlet %s/%s" % (self.tourId, self.skinId))
 
 
 class Renderer(base.Renderer):
@@ -65,7 +78,19 @@ class Renderer(base.Renderer):
     """
 
     render = ViewPageTemplateFile('amberjackstartportlet.pt')
+    
+    def __init__(self, context, request, view, manager, data): 
+        self.context = context 
+        self.request = request 
+        self.view = view 
+        self.manager = manager 
+        self.data = data
+    
+    def tour(self):
+        return '%s?tourId=%s&skinId=%s' % (self.context.portal_url(), self.data.tourId, self.data.skinId)
 
+    def image(self):
+        return '%s/amberjack.png' % self.context.portal_url()
 
 class AddForm(base.AddForm):
     """Portlet add form.
