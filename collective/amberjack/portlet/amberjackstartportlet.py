@@ -24,9 +24,10 @@ class IAmberjackStartPortlet(IPortletDataProvider):
     # empty interface - see also notes around the add form and edit form
     # below.
 
-    tourId = schema.TextLine(title=_(u"Tour identifier"),
-                                 description=_(u"Indicate the tour's identifier you want to run on this portlet"),
-                                 required=True)
+    tourId = schema.Choice(title=_(u"Tour identifier"),
+                              description=_(u"Indicate the tour's identifier you want to run on this portlet"),
+                              vocabulary="collective.amberjack.metatour.tours",
+                              required=True)
     
 
     skinId = schema.Choice(title=_(u"Choose the skin"),
@@ -35,8 +36,8 @@ class IAmberjackStartPortlet(IPortletDataProvider):
                                                      ("model_t", "Model_T")
                                                      ]),
                               default = 'safari')
-
-
+    
+    
 
 class Assignment(base.Assignment):
     """Portlet assignment.
