@@ -26,7 +26,7 @@ class IAmberjackStartPortlet(IPortletDataProvider):
 
     tourId = schema.Choice(title=_(u"Tour identifier"),
                               description=_(u"Indicate the tour's identifier you want to run on this portlet"),
-                              vocabulary="collective.amberjack.metatour.tours",
+                              vocabulary="collective.amberjack.core.tours",
                               required=True)
     
 

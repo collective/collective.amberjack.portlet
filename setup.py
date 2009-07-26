@@ -25,6 +25,7 @@ setup(name='collective.amberjack.portlet',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.amberjack.core',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
