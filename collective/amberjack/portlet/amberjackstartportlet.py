@@ -19,11 +19,6 @@ class IAmberjackStartPortlet(IPortletDataProvider):
     same.
     """
 
-    # TODO: Add any zope.schema fields here to capture portlet configuration
-    # information. Alternatively, if there are no settings, leave this as an
-    # empty interface - see also notes around the add form and edit form
-    # below.
-
     tourId = schema.Choice(title=_(u"Tour identifier"),
                               description=_(u"Indicate the tour's identifier you want to run on this portlet"),
                               vocabulary="collective.amberjack.core.tours",
@@ -35,7 +30,7 @@ class IAmberjackStartPortlet(IPortletDataProvider):
                               vocabulary=vocabulary([("safari", "Safari"),
                                                      ("model_t", "Model_T")
                                                      ]),
-                              default = 'safari')
+                              default="safari")
     
     
 
@@ -48,14 +43,8 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackStartPortlet)
 
-    # TODO: Set default values for the configurable parameters here
-
-    # some_field = u""
-
-    # TODO: Add keyword parameters for configurable parameters here
-    # def __init__(self, some_field=u""):
-    #    self.some_field = some_field
-
+    tourId = u""
+    skinId = "safari"
     
     def __init__(self, tourId, skinId):
         self.tourId = tourId
@@ -67,7 +56,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u"Amberjack start portlet %s/%s" % (self.tourId, self.skinId))
+        return _(u"Amberjack start portlet ${tourId}/${skinId}", mapping={'tourId': self.tourId, 'skinId': self.skinId})
 
 
 class Renderer(base.Renderer):

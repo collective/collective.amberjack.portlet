@@ -1,0 +1,29 @@
+# French translations for collective.amberjack.portlet package
+# Traductions françaises du paquet collective.amberjack.portlet.
+# Vincent Fretin <vincent.fretin@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.amberjack.portlet\n"
+"POT-Creation-Date: 2009-08-07 13:38+0000\n"
+"PO-Revision-Date: 2009-08-07 15:44+0100\n"
+"Last-Translator: Vincent Fretin <vincent.fretin@gmail.com>\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#. Default: "Amberjack start portlet"
+#: ../profiles/default/portlets.xml
+msgid "Amberjack start portlet"
+msgstr "Lanceur de visite Amberjack"
+
+#. Default: "the portlet for starting an amberjack demo"
+#: ../profiles/default/portlets.xml
+msgid "The portlet for starting an amberjack demo"
+msgstr "Le portlet pour démarrer une démo Amberjack"
+
