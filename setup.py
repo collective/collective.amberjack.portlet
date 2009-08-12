@@ -5,7 +5,7 @@ version = '1.0'
 
 setup(name='collective.amberjack.portlet',
       version=version,
-      description="the portlet for starting an amberjack demo",
+      description="The portlet for starting an amberjack demo",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -29,6 +29,7 @@ setup(name='collective.amberjack.portlet',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
-      # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
