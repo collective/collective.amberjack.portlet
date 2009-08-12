@@ -13,4 +13,12 @@
                     description"
    />
 
+  <assignment
+      name="amberjack-start-portlet-tourid-skinid"
+      category="context"
+      key="/"
+      manager="plone.rightcolumn"
+      type="collective.amberjack.portlet.AmberjackStartPortlet">
+  </assignment>
+
 </portlets>

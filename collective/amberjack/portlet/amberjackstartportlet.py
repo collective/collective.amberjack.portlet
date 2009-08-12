@@ -43,13 +43,9 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackStartPortlet)
 
-    tourId = u""
-    skinId = "safari"
-    
-    def __init__(self, tourId, skinId):
+    def __init__(self, tourId="", skinId="safari"):
         self.tourId = tourId
         self.skinId = skinId
-
 
     @property
     def title(self):
