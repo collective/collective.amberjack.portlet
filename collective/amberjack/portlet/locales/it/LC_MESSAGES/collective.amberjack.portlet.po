@@ -1,0 +1,49 @@
+# Italian translations for collective.amberjack.portlet package
+# Traduzione italiana per il pacchetto collective.amberjack.portlet.
+# Massimo Azzolini <massimo.azzolini@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.amberjack.portlet\n"
+"POT-Creation-Date: 2009-08-07 14:10+0000\n"
+"PO-Revision-Date: 2009-08-07 16:12+0100\n"
+"Last-Translator: Massimo Azzolini <massimo.azzolini@gmail.com>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.amberjack.portlet\n"
+
+#: ../amberjackstartportlet.py:59
+msgid "Amberjack start portlet ${tourId}/${skinId}"
+msgstr "Riquadro di partenza Amberjack ${tourId}/${skinId}"
+
+#: ../amberjackstartportlet.py:28
+msgid "Choose the skin"
+msgstr "Scegli il tuo tema"
+
+#: ../amberjackstartportlet.py:23
+msgid "Indicate the tour's identifier you want to run on this portlet"
+msgstr "Indica l'identificatore del tour che vuoi far partire in questo riquadro"
+
+#: ../amberjackstartportlet.py:29
+msgid "Indicate the tour's window layout"
+msgstr "Indica il tema della finestra del tour"
+
+#: ../amberjackstartportlet.py:22
+msgid "Tour identifier"
+msgstr "Identificatore del tour"
+
+#. Default: "Click to start tour!"
+#: ../amberjackstartportlet.pt:12
+msgid "click_to_start_tour"
+msgstr "Clicca per far partire il tour"
+
+#. Default: "Run the demo"
+#: ../amberjackstartportlet.pt:6
+msgid "title_run_the_demo"
+msgstr "Esegui la demo"
+
