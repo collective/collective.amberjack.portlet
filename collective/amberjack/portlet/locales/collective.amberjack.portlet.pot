@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-08-07 14:10+0000\n"
+"POT-Creation-Date: 2009-08-14 18:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,10 +15,15 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.amberjack.portlet\n"
+"Domain: plone\n"
 
-#: ../amberjackstartportlet.py:59
+#: ../amberjackstartportlet.py:55
 msgid "Amberjack start portlet ${tourId}/${skinId}"
+msgstr ""
+
+#. Default: "Amberjack tour launcher"
+#: ../profiles/default/portlets.xml
+msgid "Amberjack tour launcher"
 msgstr ""
 
 #: ../amberjackstartportlet.py:28
@@ -31,6 +36,11 @@ msgstr ""
 
 #: ../amberjackstartportlet.py:29
 msgid "Indicate the tour's window layout"
+msgstr ""
+
+#. Default: "the portlet for starting an amberjack demo"
+#: ../profiles/default/portlets.xml
+msgid "The portlet for starting an amberjack demo"
 msgstr ""
 
 #: ../amberjackstartportlet.py:22

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.amberjack.portlet\n"
-"POT-Creation-Date: 2009-08-07 14:10+0000\n"
+"POT-Creation-Date: 2009-08-14 18:19+0000\n"
 "PO-Revision-Date: 2009-08-07 16:12+0100\n"
 "Last-Translator: Massimo Azzolini <massimo.azzolini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -17,9 +17,14 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.amberjack.portlet\n"
 
-#: ../amberjackstartportlet.py:59
+#: ../amberjackstartportlet.py:55
 msgid "Amberjack start portlet ${tourId}/${skinId}"
 msgstr "Riquadro di partenza Amberjack ${tourId}/${skinId}"
+
+#. Default: "Amberjack tour launcher"
+#: ../profiles/default/portlets.xml
+msgid "Amberjack tour launcher"
+msgstr "Riquadro di partenza Amberjack"
 
 #: ../amberjackstartportlet.py:28
 msgid "Choose the skin"
@@ -32,6 +37,11 @@ msgstr "Indica l'identificatore del tour che vuoi far partire in questo riquadro
 #: ../amberjackstartportlet.py:29
 msgid "Indicate the tour's window layout"
 msgstr "Indica il tema della finestra del tour"
+
+#. Default: "the portlet for starting an amberjack demo"
+#: ../profiles/default/portlets.xml
+msgid "The portlet for starting an amberjack demo"
+msgstr "Il riquadro da cui far partire una demo Amberjack"
 
 #: ../amberjackstartportlet.py:22
 msgid "Tour identifier"

@@ -17,9 +17,9 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#. Default: "Amberjack start portlet"
+#. Default: "Amberjack tour launcher"
 #: ../profiles/default/portlets.xml
-msgid "Amberjack start portlet"
+msgid "Amberjack tour launcher"
 msgstr ""
 
 #. Default: "the portlet for starting an amberjack demo"
