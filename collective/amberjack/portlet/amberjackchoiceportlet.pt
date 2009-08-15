@@ -1,0 +1,24 @@
+<dl class="portlet portletAmberjackChoicePortlet"
+    i18n:domain="collective.amberjack.portlet">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <span i18n:translate="title_choice_run_the_demo" tal:omit-tag="">Choose and run a tour</span>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+    	<ul tal:repeat="tour view/tours">
+    		<li>
+        	<a tal:attributes="href tour/url" tal:content="tour/title" />
+			</li>
+		</ul>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        &nbsp;
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>

@@ -1,17 +1,17 @@
-from zope.interface import implements
-
-from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.portlets.portlets import base
-
-from zope import schema
-from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.amberjack.portlet.vocabulary import vocabulary
-
+from collective.amberjack.core.tour_manager import IManageTourUtility
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
+from collective.amberjack.portlet.vocabulary import vocabulary
+from plone.app.portlets.portlets import base
+from plone.portlets.interfaces import IPortletDataProvider
+from zope import schema
+from zope.component import getUtility
+from zope.formlib import form
+from zope.interface import implements
+from zope.schema.vocabulary import getVocabularyRegistry
 
 
-class IAmberjackStartPortlet(IPortletDataProvider):
+class IAmberjackChoicePortlet(IPortletDataProvider):
     """A portlet
 
     It inherits from IPortletDataProvider because for this portlet, the
@@ -19,11 +19,13 @@ class IAmberjackStartPortlet(IPortletDataProvider):
     same.
     """
 
-    tourId = schema.Choice(title=_(u"Tour identifier"),
-                              description=_(u"Indicate the tour's identifier you want to run on this portlet"),
+    tours = schema.List(
+                value_type=schema.Choice(title=_(u"Tour identifier"),
+                              description=_(u"Select the tours that can be choosen by an user on this portlet"),
                               vocabulary="collective.amberjack.core.tours",
                               required=True)
-    
+                )
+
 
     skinId = schema.Choice(title=_(u"Choose the skin"),
                               description=_(u"Indicate the tour's window layout"),
@@ -31,7 +33,6 @@ class IAmberjackStartPortlet(IPortletDataProvider):
                                                      ("model_t", "Model_T")
                                                      ]),
                               default="safari")
-    
     
 
 class Assignment(base.Assignment):
@@ -41,10 +42,10 @@ class Assignment(base.Assignment):
     with columns.
     """
 
-    implements(IAmberjackStartPortlet)
+    implements(IAmberjackChoicePortlet)
 
-    def __init__(self, tourId="", skinId="safari"):
-        self.tourId = tourId
+    def __init__(self, tours="", skinId="safari"):
+        self.tours = tours
         self.skinId = skinId
 
     @property
@@ -52,7 +53,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u"Amberjack start portlet ${tourId}/${skinId}", mapping={'tourId': self.tourId, 'skinId': self.skinId})
+        return _(u"Amberjack Choice portlet ${skinId}", mapping={'skinId': self.skinId})
 
 
 class Renderer(base.Renderer):
@@ -63,7 +64,7 @@ class Renderer(base.Renderer):
     of this class. Other methods can be added and referenced in the template.
     """
 
-    render = ViewPageTemplateFile('amberjackstartportlet.pt')
+    render = ViewPageTemplateFile('amberjackchoiceportlet.pt')
     
     def __init__(self, context, request, view, manager, data): 
         self.context = context 
@@ -72,11 +73,24 @@ class Renderer(base.Renderer):
         self.manager = manager 
         self.data = data
     
-    def tour(self):
-        return '%s?tourId=%s&skinId=%s' % (self.context.portal_url(), self.data.tourId, self.data.skinId)
+    def tours(self):
+        manager = getUtility(IManageTourUtility)
+        portal_url = self.context.portal_url()
+        
+        if self.data.tours:
+            tours = self.data.tours
+        else:
+            vr = getVocabularyRegistry()
+            voc = vr.get(self.context, "collective.amberjack.core.tours")
+            tours =  [v.value for v in voc]
+            
+        l = []    
+        for tour in tours:
+            tourDefinition = manager.getTour(tour, context=self.context)
+            url ='%s?tourId=%s&skinId=%s' % (portal_url, tour, self.data.skinId)
+            l.append({'title': tourDefinition.title(), 'url':url})
 
-    def image(self):
-        return '%s/amberjack.png' % self.context.portal_url()
+        return l
 
 class AddForm(base.AddForm):
     """Portlet add form.
@@ -85,26 +99,11 @@ class AddForm(base.AddForm):
     zope.formlib which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
-    form_fields = form.Fields(IAmberjackStartPortlet)
+    form_fields = form.Fields(IAmberjackChoicePortlet)
 
     def create(self, data):
         return Assignment(**data)
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can use the next AddForm implementation instead of the previous.
-
-# class AddForm(base.NullAddForm):
-#     """Portlet add form.
-#     """
-#     def create(self):
-#         return Assignment()
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can remove the EditForm class definition and delete the editview
-# attribute from the <plone:portlet /> registration in configure.zcml
-
+    
 
 class EditForm(base.EditForm):
     """Portlet edit form.
@@ -112,4 +111,4 @@ class EditForm(base.EditForm):
     This is registered with configure.zcml. The form_fields variable tells
     zope.formlib which fields to display.
     """
-    form_fields = form.Fields(IAmberjackStartPortlet)
+    form_fields = form.Fields(IAmberjackChoicePortlet)

@@ -13,12 +13,28 @@
                     description"
    />
 
+ <portlet
+   addview="collective.amberjack.portlet.AmberjackChoicePortlet"
+   title="Amberjack choice portlet"
+   description="The portlet for starting a demo from a list"
+   i18n:attributes="title;
+                    description"
+   />
+
   <assignment
       name="amberjack-start-portlet-tourid-skinid"
       category="context"
       key="/"
       manager="plone.rightcolumn"
       type="collective.amberjack.portlet.AmberjackStartPortlet">
+  </assignment>
+
+  <assignment
+      name="amberjack-choice-portlet-tourid-skinid"
+      category="context"
+      key="/"
+      manager="plone.rightcolumn"
+      type="collective.amberjack.portlet.AmberjackChoicePortlet">
   </assignment>
 
 </portlets>

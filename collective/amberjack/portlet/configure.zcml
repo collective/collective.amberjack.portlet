@@ -36,4 +36,15 @@
          editview=".amberjackstartportlet.EditForm"
          />
 
+     <plone:portlet
+         name="collective.amberjack.portlet.AmberjackChoicePortlet"
+         interface=".amberjackchoiceportlet.IAmberjackChoicePortlet"
+         assignment=".amberjackchoiceportlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".amberjackchoiceportlet.Renderer"
+         addview=".amberjackchoiceportlet.AddForm"
+         editview=".amberjackchoiceportlet.EditForm"
+         />
+
 </configure>

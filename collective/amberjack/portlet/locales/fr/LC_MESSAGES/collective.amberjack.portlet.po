@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.amberjack.portlet\n"
-"POT-Creation-Date: 2009-08-14 18:19+0000\n"
+"POT-Creation-Date: 2009-08-15 21:34+0000\n"
 "PO-Revision-Date: 2009-08-13 18:53+0100\n"
 "Last-Translator: Vincent Fretin <vincent.fretin@gmail.com>\n"
 "Language-Team: French\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.amberjack.portlet\n"
 
+#: ../amberjackchoiceportlet.py:56
+msgid "Amberjack Choice portlet ${skinId}"
+msgstr ""
+
 #: ../amberjackstartportlet.py:55
 msgid "Amberjack start portlet ${tourId}/${skinId}"
 msgstr "Lanceur de visite Amberjack ${tourId}/${skinId}"
@@ -26,7 +30,7 @@ msgstr "Lanceur de visite Amberjack ${tourId}/${skinId}"
 msgid "Amberjack tour launcher"
 msgstr "Lanceur de visite Amberjack"
 
-#: ../amberjackstartportlet.py:28
+#: ../amberjackchoiceportlet.py:30
 msgid "Choose the skin"
 msgstr "Choisisez votre skin"
 
@@ -34,16 +38,20 @@ msgstr "Choisisez votre skin"
 msgid "Indicate the tour's identifier you want to run on this portlet"
 msgstr "Spécifiez l'identifiant de la visite à lancer avec ce portlet"
 
-#: ../amberjackstartportlet.py:29
+#: ../amberjackchoiceportlet.py:31
 msgid "Indicate the tour's window layout"
 msgstr "Spécifiez la mise en page de la visite"
+
+#: ../amberjackchoiceportlet.py:24
+msgid "Select the tours that can be choosen by an user on this portlet"
+msgstr ""
 
 #. Default: "the portlet for starting an amberjack demo"
 #: ../profiles/default/portlets.xml
 msgid "The portlet for starting an amberjack demo"
 msgstr "Le portlet pour démarrer une démo Amberjack"
 
-#: ../amberjackstartportlet.py:22
+#: ../amberjackchoiceportlet.py:23
 msgid "Tour identifier"
 msgstr "Identifiant de la visite"
 
@@ -51,6 +59,11 @@ msgstr "Identifiant de la visite"
 #: ../amberjackstartportlet.pt:12
 msgid "click_to_start_tour"
 msgstr "Cliquez pour lancer la visite !"
+
+#. Default: "Choose and run a tour"
+#: ../amberjackchoiceportlet.pt:6
+msgid "title_choice_run_the_demo"
+msgstr ""
 
 #. Default: "Run the demo"
 #: ../amberjackstartportlet.pt:6

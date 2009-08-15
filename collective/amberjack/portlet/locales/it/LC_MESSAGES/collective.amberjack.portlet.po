@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.amberjack.portlet\n"
-"POT-Creation-Date: 2009-08-14 18:19+0000\n"
+"POT-Creation-Date: 2009-08-15 21:34+0000\n"
 "PO-Revision-Date: 2009-08-07 16:12+0100\n"
 "Last-Translator: Massimo Azzolini <massimo.azzolini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.amberjack.portlet\n"
 
+#: ../amberjackchoiceportlet.py:56
+msgid "Amberjack Choice portlet ${skinId}"
+msgstr "Riquadro di scelta Amberjack ${skinId}"
+
 #: ../amberjackstartportlet.py:55
 msgid "Amberjack start portlet ${tourId}/${skinId}"
 msgstr "Riquadro di partenza Amberjack ${tourId}/${skinId}"
@@ -26,7 +30,7 @@ msgstr "Riquadro di partenza Amberjack ${tourId}/${skinId}"
 msgid "Amberjack tour launcher"
 msgstr "Partenza di un tour Amberjack"
 
-#: ../amberjackstartportlet.py:28
+#: ../amberjackchoiceportlet.py:30
 msgid "Choose the skin"
 msgstr "Scegli il tuo tema"
 
@@ -34,16 +38,20 @@ msgstr "Scegli il tuo tema"
 msgid "Indicate the tour's identifier you want to run on this portlet"
 msgstr "Indica l'identificatore del tour che vuoi far partire in questo riquadro"
 
-#: ../amberjackstartportlet.py:29
+#: ../amberjackchoiceportlet.py:31
 msgid "Indicate the tour's window layout"
 msgstr "Indica il tema della finestra del tour"
+
+#: ../amberjackchoiceportlet.py:24
+msgid "Select the tours that can be choosen by an user on this portlet"
+msgstr "Seleziona il tour che può essere scelto da un utente in questo riquadro"
 
 #. Default: "the portlet for starting an amberjack demo"
 #: ../profiles/default/portlets.xml
 msgid "The portlet for starting an amberjack demo"
 msgstr "Il riquadro da cui far partire una demo Amberjack"
 
-#: ../amberjackstartportlet.py:22
+#: ../amberjackchoiceportlet.py:23
 msgid "Tour identifier"
 msgstr "Identificatore del tour"
 
@@ -51,6 +59,11 @@ msgstr "Identificatore del tour"
 #: ../amberjackstartportlet.pt:12
 msgid "click_to_start_tour"
 msgstr "Clicca per far partire il tour"
+
+#. Default: "Choose and run a tour"
+#: ../amberjackchoiceportlet.pt:6
+msgid "title_choice_run_the_demo"
+msgstr "Scegli e lancia il tour"
 
 #. Default: "Run the demo"
 #: ../amberjackstartportlet.pt:6
