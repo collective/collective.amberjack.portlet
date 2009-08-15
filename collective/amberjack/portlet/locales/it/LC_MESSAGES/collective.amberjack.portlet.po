@@ -24,7 +24,7 @@ msgstr "Riquadro di partenza Amberjack ${tourId}/${skinId}"
 #. Default: "Amberjack tour launcher"
 #: ../profiles/default/portlets.xml
 msgid "Amberjack tour launcher"
-msgstr "Riquadro di partenza Amberjack"
+msgstr "Partenza di un tour Amberjack"
 
 #: ../amberjackstartportlet.py:28
 msgid "Choose the skin"
