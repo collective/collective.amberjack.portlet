@@ -20,8 +20,9 @@ class IAmberjackChoicePortlet(IPortletDataProvider):
     """
 
     tours = schema.List(
+                title=_(u"Choose the tours"),
+                description=_(u"Select the tours that can be choosen by an user on this portlet"),
                 value_type=schema.Choice(title=_(u"Tour identifier"),
-                              description=_(u"Select the tours that can be choosen by an user on this portlet"),
                               vocabulary="collective.amberjack.core.tours",
                               required=True)
                 )
