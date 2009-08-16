@@ -9,7 +9,6 @@ from zope.interface import implements
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
-from collective.amberjack.portlet.vocabulary import vocabulary
 
 
 class IAmberjackChoicePortlet(IPortletDataProvider):
@@ -31,10 +30,8 @@ class IAmberjackChoicePortlet(IPortletDataProvider):
 
     skinId = schema.Choice(title=_(u"Choose the skin"),
                               description=_(u"Indicate the tour's window layout"),
-                              vocabulary=vocabulary([("safari", "Safari"),
-                                                     ("model_t", "Model_T")
-                                                     ]),
-                              default="safari")
+                              vocabulary="collective.amberjack.skins",
+                              default="model_t")
     
 
 class Assignment(base.Assignment):
@@ -46,7 +43,7 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackChoicePortlet)
 
-    def __init__(self, tours=None, skinId="safari"):
+    def __init__(self, tours=None, skinId="model_t"):
         if tours is None:
             self.tours = []
         else:

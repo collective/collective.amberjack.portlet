@@ -7,7 +7,6 @@ from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
 
-from collective.amberjack.portlet.vocabulary import vocabulary
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
 
@@ -27,10 +26,8 @@ class IAmberjackStartPortlet(IPortletDataProvider):
 
     skinId = schema.Choice(title=_(u"Choose the skin"),
                               description=_(u"Indicate the tour's window layout"),
-                              vocabulary=vocabulary([("safari", "Safari"),
-                                                     ("model_t", "Model_T")
-                                                     ]),
-                              default="safari")
+                              vocabulary="collective.amberjack.skins",
+                              default="model_t")
     
     
 
@@ -43,7 +40,7 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackStartPortlet)
 
-    def __init__(self, tourId="", skinId="safari"):
+    def __init__(self, tourId="", skinId="model_t"):
         self.tourId = tourId
         self.skinId = skinId
 
