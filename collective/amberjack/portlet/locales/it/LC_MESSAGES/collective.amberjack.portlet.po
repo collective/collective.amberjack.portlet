@@ -23,12 +23,12 @@ msgstr "Riquadro di scelta Amberjack ${skinId}"
 
 #: ../amberjackstartportlet.py:55
 msgid "Amberjack start portlet ${tourId}/${skinId}"
-msgstr "Riquadro di partenza Amberjack ${tourId}/${skinId}"
+msgstr "Riquadro di lancio Amberjack ${tourId}/${skinId}"
 
 #. Default: "Amberjack tour launcher"
 #: configure.zcml
 msgid "Amberjack tour launcher"
-msgstr "Partenza di un tour Amberjack"
+msgstr "Lancio di un tour Amberjack"
 
 #: ../amberjackchoiceportlet.py:31
 msgid "Choose the skin"
@@ -36,7 +36,7 @@ msgstr "Scegli il tuo tema"
 
 #: ../amberjackchoiceportlet.py:23
 msgid "Choose the tours"
-msgstr ""
+msgstr "Scegli il tour"
 
 #: ../amberjackstartportlet.py:23
 msgid "Indicate the tour's identifier you want to run on this portlet"
