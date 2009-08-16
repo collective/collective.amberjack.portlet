@@ -22,15 +22,7 @@
    />
 
   <assignment
-      name="amberjack-start-portlet-tourid-skinid"
-      category="context"
-      key="/"
-      manager="plone.rightcolumn"
-      type="collective.amberjack.portlet.AmberjackStartPortlet">
-  </assignment>
-
-  <assignment
-      name="amberjack-choice-portlet-tourid-skinid"
+      name="amberjack-choice-portlet"
       category="context"
       key="/"
       manager="plone.rightcolumn"
