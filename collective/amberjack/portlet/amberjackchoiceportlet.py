@@ -74,8 +74,9 @@ class Renderer(base.Renderer):
         self.view = view 
         self.manager = manager 
         self.data = data
-    
-    def tours(self):
+
+    @property
+    def available(self):
         portal_state = getMultiAdapter((self.context, self.request),
                                        name=u'plone_portal_state')
         navigation_root_url = portal_state.navigation_root_url()
@@ -97,7 +98,11 @@ class Renderer(base.Renderer):
                 pass
                 # continue silently if a tour is not in the vocabulary anymore
 
-        return selected_tours
+        self.selected_tours = selected_tours
+        return bool(self.selected_tours)
+    
+    def tours(self):
+        return self.selected_tours
 
 
 class AddForm(base.AddForm):

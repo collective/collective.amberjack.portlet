@@ -6,6 +6,7 @@ from zope import schema
 from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
+from zope.schema.vocabulary import getVocabularyRegistry
 
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
@@ -71,7 +72,17 @@ class Renderer(base.Renderer):
         portal_state = getMultiAdapter((self.context, self.request),
                                        name=u'plone_portal_state')
         self.navigation_root_url = portal_state.navigation_root_url()
-    
+
+    @property
+    def available(self):
+        registry = getVocabularyRegistry()
+        vocab = registry.get(self.context, "collective.amberjack.core.tours")
+        try:
+            term = vocab.getTermByToken(self.data.tourId)
+            return True
+        except LookupError:
+            return False
+            
     def tour(self):
         return '%s?tourId=%s&skinId=%s' % (self.navigation_root_url, self.data.tourId, self.data.skinId)
 
