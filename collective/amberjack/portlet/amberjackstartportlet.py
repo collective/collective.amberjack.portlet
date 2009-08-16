@@ -1,13 +1,13 @@
-from zope.interface import implements
-
-from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
+from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from zope import schema
+from zope.component import getMultiAdapter
 from zope.formlib import form
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.amberjack.portlet.vocabulary import vocabulary
+from zope.interface import implements
 
+from collective.amberjack.portlet.vocabulary import vocabulary
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
 
@@ -71,12 +71,15 @@ class Renderer(base.Renderer):
         self.view = view 
         self.manager = manager 
         self.data = data
+        portal_state = getMultiAdapter((self.context, self.request),
+                                       name=u'plone_portal_state')
+        self.navigation_root_url = portal_state.navigation_root_url()
     
     def tour(self):
-        return '%s?tourId=%s&skinId=%s' % (self.context.portal_url(), self.data.tourId, self.data.skinId)
+        return '%s?tourId=%s&skinId=%s' % (self.navigation_root_url, self.data.tourId, self.data.skinId)
 
     def image(self):
-        return '%s/amberjack.png' % self.context.portal_url()
+        return '%s/amberjack.png' % self.navigation_root_url
 
 class AddForm(base.AddForm):
     """Portlet add form.

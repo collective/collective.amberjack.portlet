@@ -1,14 +1,15 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.amberjack.core.tour_manager import IManageTourUtility
-from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
-from collective.amberjack.portlet.vocabulary import vocabulary
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 from zope import schema
-from zope.component import getUtility
+from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
 from zope.schema.vocabulary import getVocabularyRegistry
+
+from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
+from collective.amberjack.portlet.vocabulary import vocabulary
 
 
 class IAmberjackChoicePortlet(IPortletDataProvider):
@@ -45,8 +46,11 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackChoicePortlet)
 
-    def __init__(self, tours="", skinId="safari"):
-        self.tours = tours
+    def __init__(self, tours=None, skinId="safari"):
+        if tours is None:
+            self.tours = []
+        else:
+            self.tours = tours
         self.skinId = skinId
 
     @property
@@ -75,23 +79,28 @@ class Renderer(base.Renderer):
         self.data = data
     
     def tours(self):
-        manager = getUtility(IManageTourUtility)
-        portal_url = self.context.portal_url()
+        portal_state = getMultiAdapter((self.context, self.request),
+                                       name=u'plone_portal_state')
+        navigation_root_url = portal_state.navigation_root_url()
         
+        vr = getVocabularyRegistry()
+        voc = vr.get(self.context, "collective.amberjack.core.tours")
         if self.data.tours:
             tours = self.data.tours
         else:
-            vr = getVocabularyRegistry()
-            voc = vr.get(self.context, "collective.amberjack.core.tours")
-            tours =  [v.value for v in voc]
+            tours = [term.token for term in voc]
             
-        l = []    
-        for tour in tours:
-            tourDefinition = manager.getTour(tour, context=self.context)
-            url ='%s?tourId=%s&skinId=%s' % (portal_url, tour, self.data.skinId)
-            l.append({'title': tourDefinition.title(), 'url':url})
+        selected_tours = []
+        for tour_id in tours:
+            try:
+                title = voc.getTermByToken(tour_id).title
+            except LookupError:
+                # continue silently if a tour is not in the vocabulary anymore
+            url ='%s?tourId=%s&skinId=%s' % (navigation_root_url, tour_id, self.data.skinId)
+            selected_tours.append({'title': title, 'url': url})
 
-        return l
+        return selected_tours
+
 
 class AddForm(base.AddForm):
     """Portlet add form.
