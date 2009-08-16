@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-08-15 21:34+0000\n"
+"POT-Creation-Date: 2009-08-16 07:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,9 +15,9 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: plone\n"
+"Domain: collective.amberjack.portlet\n"
 
-#: ../amberjackchoiceportlet.py:56
+#: ../amberjackchoiceportlet.py:60
 msgid "Amberjack Choice portlet ${skinId}"
 msgstr ""
 
@@ -26,19 +26,23 @@ msgid "Amberjack start portlet ${tourId}/${skinId}"
 msgstr ""
 
 #. Default: "Amberjack tour launcher"
-#: ../profiles/default/portlets.xml
+#: configure.zcml
 msgid "Amberjack tour launcher"
 msgstr ""
 
-#: ../amberjackchoiceportlet.py:30
+#: ../amberjackchoiceportlet.py:31
 msgid "Choose the skin"
+msgstr ""
+
+#: ../amberjackchoiceportlet.py:23
+msgid "Choose the tours"
 msgstr ""
 
 #: ../amberjackstartportlet.py:23
 msgid "Indicate the tour's identifier you want to run on this portlet"
 msgstr ""
 
-#: ../amberjackchoiceportlet.py:31
+#: ../amberjackchoiceportlet.py:32
 msgid "Indicate the tour's window layout"
 msgstr ""
 
@@ -47,11 +51,11 @@ msgid "Select the tours that can be choosen by an user on this portlet"
 msgstr ""
 
 #. Default: "the portlet for starting an amberjack demo"
-#: ../profiles/default/portlets.xml
+#: configure.zcml
 msgid "The portlet for starting an amberjack demo"
 msgstr ""
 
-#: ../amberjackchoiceportlet.py:23
+#: ../amberjackstartportlet.py:22
 msgid "Tour identifier"
 msgstr ""
 

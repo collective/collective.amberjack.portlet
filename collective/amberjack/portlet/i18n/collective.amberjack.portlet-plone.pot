@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-08-07 13:38+0000\n"
+"POT-Creation-Date: 2009-08-16 07:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,15 +15,25 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.amberjack.portlet\n"
+"Domain: plone\n"
 
-#. Default: "Amberjack tour launcher"
-#: configure.zcml
-msgid "Amberjack tour launcher"
+#. Default: "Amberjack choice portlet"
+#: ../profiles/default/portlets.xml
+msgid "Amberjack choice portlet"
 msgstr ""
 
-#. Default: "the portlet for starting an amberjack demo"
-#: configure.zcml
+#. Default: "Amberjack start portlet"
+#: ../profiles/default/portlets.xml
+msgid "Amberjack start portlet"
+msgstr ""
+
+#. Default: "The portlet for starting a demo from a list"
+#: ../profiles/default/portlets.xml
+msgid "The portlet for starting a demo from a list"
+msgstr ""
+
+#. Default: "The portlet for starting an amberjack demo"
+#: ../profiles/default/portlets.xml
 msgid "The portlet for starting an amberjack demo"
 msgstr ""
 
