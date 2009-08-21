@@ -18,11 +18,6 @@
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
-    <utility
-        name="collective.amberjack.skins"
-        factory=".vocabulary.AvailableSkinsVocabulary"
-        />
-
      <!-- Register the portlet -->
 
      <!-- If the portlet has no configurable parameters, you can remove
