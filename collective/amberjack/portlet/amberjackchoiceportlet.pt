@@ -8,6 +8,9 @@
     </dt>
 
     <dd class="portletItem odd">
+      <img style="float:right"
+           tal:define="portal_url context/@@plone_portal_state/portal_url"
+           tal:attributes="src string:${portal_url}/++resource++bulb.png" />
     	<ol>
     		<li tal:repeat="tour view/tours">
         	<a tal:attributes="href tour/url" tal:content="tour/title" />
