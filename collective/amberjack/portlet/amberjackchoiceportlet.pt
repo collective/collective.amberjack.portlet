@@ -11,11 +11,13 @@
       <img style="float:right"
            tal:define="portal_url context/@@plone_portal_state/portal_url"
            tal:attributes="src string:${portal_url}/++resource++bulb.png" />
-    	<ol>
-    		<li tal:repeat="tour view/tours">
-        	<a tal:attributes="href tour/url" tal:content="tour/title" />
-			</li>
-		</ol>
+      <ol>
+        <li tal:repeat="tour view/tours">
+          <a tal:attributes="href tour/url;
+                             style python:tour['object'].steps[0].validate(context, request) and 'color:#CCC' or ''"
+             tal:content="tour/title" />
+        </li>
+      </ol>
     </dd>
 
     <span class="portletBottomLeft"></span>

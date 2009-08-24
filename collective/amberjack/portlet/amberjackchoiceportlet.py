@@ -91,9 +91,11 @@ class Renderer(base.Renderer):
         selected_tours = []
         for tour_id in tours:
             try:
-                title = voc.getTermByToken(tour_id).title
+                term = voc.getTermByToken(tour_id)
                 url ='%s?tourId=%s&skinId=%s' % (navigation_root_url, tour_id, self.data.skinId)
-                selected_tours.append({'title': title, 'url': url})
+                selected_tours.append({'object': term.value,
+                                       'title': term.title,
+                                       'url': url})
             except LookupError:
                 pass
                 # continue silently if a tour is not in the vocabulary anymore
