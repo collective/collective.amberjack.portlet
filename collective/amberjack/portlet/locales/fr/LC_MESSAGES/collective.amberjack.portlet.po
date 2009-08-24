@@ -19,16 +19,16 @@ msgstr ""
 
 #: ../amberjackchoiceportlet.py:60
 msgid "Amberjack Choice portlet ${skinId}"
-msgstr "Choix visites Amberjack ${skinId}"
+msgstr "Choix visites guidées Amberjack ${skinId}"
 
 #: ../amberjackstartportlet.py:55
 msgid "Amberjack start portlet ${tourId}/${skinId}"
-msgstr "Lanceur de visite Amberjack ${tourId}/${skinId}"
+msgstr "Lanceur de visite guidée Amberjack ${tourId}/${skinId}"
 
 #. Default: "Amberjack tour launcher"
 #: configure.zcml
 msgid "Amberjack tour launcher"
-msgstr "Lanceur de visite Amberjack"
+msgstr "Lanceur de visite guidée Amberjack"
 
 #: ../amberjackchoiceportlet.py:31
 msgid "Choose the skin"
@@ -36,19 +36,19 @@ msgstr "Choisissez votre skin"
 
 #: ../amberjackchoiceportlet.py:23
 msgid "Choose the tours"
-msgstr "Choix des visites"
+msgstr "Choix des visites guidées"
 
 #: ../amberjackstartportlet.py:23
 msgid "Indicate the tour's identifier you want to run on this portlet"
-msgstr "Spécifiez l'identifiant de la visite à lancer avec ce portlet"
+msgstr "Spécifiez l'identifiant de la visite guidée à lancer avec ce portlet"
 
 #: ../amberjackchoiceportlet.py:32
 msgid "Indicate the tour's window layout"
-msgstr "Spécifiez la mise en page de la visite"
+msgstr "Spécifiez la mise en page de la visite guidée"
 
 #: ../amberjackchoiceportlet.py:24
 msgid "Select the tours that can be choosen by an user on this portlet"
-msgstr "Sélectionnez les visites qui pourront être choisies par l'utilisateur sur ce portlet."
+msgstr "Sélectionnez les visites guidées qui pourront être choisies par l'utilisateur sur ce portlet."
 
 #. Default: "the portlet for starting an amberjack demo"
 #: configure.zcml
@@ -57,17 +57,17 @@ msgstr "Le portlet pour démarrer une démo Amberjack"
 
 #: ../amberjackstartportlet.py:22
 msgid "Tour identifier"
-msgstr "Identifiant de la visite"
+msgstr "Identifiant de la visite guidée"
 
 #. Default: "Click to start tour!"
 #: ../amberjackstartportlet.pt:12
 msgid "click_to_start_tour"
-msgstr "Cliquer pour lancer la visite !"
+msgstr "Cliquer pour lancer la visite guidée !"
 
 #. Default: "Choose and run a tour"
 #: ../amberjackchoiceportlet.pt:6
 msgid "title_choice_run_the_demo"
-msgstr "Choisir et lancer une visite"
+msgstr "Choisir et lancer une visite guidée"
 
 #. Default: "Run the demo"
 #: ../amberjackstartportlet.pt:6
