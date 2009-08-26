@@ -21,7 +21,7 @@ class IAmberjackChoicePortlet(IPortletDataProvider):
     user_title = schema.TextLine(
                         title=_(u"Describe this set of tours"),
                         description=_(u"This text will appear as portlet's title"),
-                        default=_(u"Choose and run a tour") #XXX it doesn't get the translation
+                        required=False,
                         )
 
     tours = schema.List(
