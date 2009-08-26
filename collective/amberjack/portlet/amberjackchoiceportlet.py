@@ -48,11 +48,16 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackChoicePortlet)
 
-    def __init__(self, user_title=None, tours=None, skinId="model_t"):
+    def __init__(self, user_title=None, tours=None, skinId=None):
         if tours is None:
             self.tours = []
         else:
             self.tours = tours
+        if skinId == None:
+            vr = getVocabularyRegistry()
+            vs = vr.get(None, "collective.amberjack.skins")
+            skinId = vs._terms[0]
+                
         self.skinId = skinId
         self.user_title = user_title
 
@@ -61,7 +66,7 @@ class Assignment(base.Assignment):
         """This property is used to give the title of the portlet in the
         "manage portlets" screen.
         """
-        return _(u"Amberjack Choice portlet ${skinId}", mapping={'skinId': self.skinId})
+        return _(u"Amberjack Choice portlet ${skinId}", mapping={'skinId': self.skinId.title})
 
 
 class Renderer(base.Renderer):
@@ -98,7 +103,7 @@ class Renderer(base.Renderer):
         for tour_id in tours:
             try:
                 term = voc.getTermByToken(tour_id)
-                url ='%s?tourId=%s&skinId=%s' % (navigation_root_url, tour_id, self.data.skinId)
+                url ='%s?tourId=%s&skinId=%s' % (navigation_root_url, tour_id, self.data.skinId.title)
                 selected_tours.append({'object': term.value,
                                        'title': term.title,
                                        'url': url})
