@@ -3,7 +3,7 @@
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        <span i18n:translate="title_choice_run_the_demo" tal:omit-tag="">Choose and run a tour</span>
+		<span tal:content="view/user_title"/>
         <span class="portletTopRight"></span>
     </dt>
 

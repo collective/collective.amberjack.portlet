@@ -1,14 +1,13 @@
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.formlib import form
 from zope.interface import implements
 from zope.schema.vocabulary import getVocabularyRegistry
 
-from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
 
 class IAmberjackChoicePortlet(IPortletDataProvider):
@@ -18,6 +17,12 @@ class IAmberjackChoicePortlet(IPortletDataProvider):
     data that is being rendered and the portlet assignment itself are the
     same.
     """
+
+    user_title = schema.TextLine(
+                        title=_(u"Describe this set of tours"),
+                        description=_(u"This text will appear as portlet's title"),
+                        default=_(u"Choose and run a tour") #XXX it doesn't get the translation
+                        )
 
     tours = schema.List(
                 title=_(u"Choose the tours"),
@@ -43,12 +48,13 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackChoicePortlet)
 
-    def __init__(self, tours=None, skinId="model_t"):
+    def __init__(self, user_title=None, tours=None, skinId="model_t"):
         if tours is None:
             self.tours = []
         else:
             self.tours = tours
         self.skinId = skinId
+        self.user_title = user_title
 
     @property
     def title(self):
@@ -106,6 +112,9 @@ class Renderer(base.Renderer):
     def tours(self):
         return self.selected_tours
 
+    def user_title(self):
+        return self.data.user_title
+         
 
 class AddForm(base.AddForm):
     """Portlet add form.

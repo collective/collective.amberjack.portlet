@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.amberjack.portlet\n"
-"POT-Creation-Date: 2009-08-16 07:08+0000\n"
+"POT-Creation-Date: 2009-08-16 17:16+0000\n"
 "PO-Revision-Date: 2009-08-07 16:12+0100\n"
 "Last-Translator: Massimo Azzolini <massimo.azzolini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.amberjack.portlet\n"
 
-#: ../amberjackchoiceportlet.py:60
+#: ../amberjackchoiceportlet.py:64
 msgid "Amberjack Choice portlet ${skinId}"
 msgstr "Riquadro di scelta Amberjack ${skinId}"
 
-#: ../amberjackstartportlet.py:55
+#: ../amberjackstartportlet.py:52
 msgid "Amberjack start portlet ${tourId}/${skinId}"
 msgstr "Riquadro di lancio Amberjack ${tourId}/${skinId}"
 
@@ -30,23 +30,32 @@ msgstr "Riquadro di lancio Amberjack ${tourId}/${skinId}"
 msgid "Amberjack tour launcher"
 msgstr "Lancio di un tour Amberjack"
 
-#: ../amberjackchoiceportlet.py:31
+#. Default: "Choose and run a tour"
+#: ../amberjackchoiceportlet.pt:7
+msgid "Choose and run a tour"
+msgstr "Scegli e lancia il tour"
+
+#: ../amberjackchoiceportlet.py:37
 msgid "Choose the skin"
 msgstr "Scegli il tuo tema"
 
-#: ../amberjackchoiceportlet.py:23
+#: ../amberjackchoiceportlet.py:29
 msgid "Choose the tours"
 msgstr "Scegli il tour"
 
-#: ../amberjackstartportlet.py:23
+#: ../amberjackchoiceportlet.py:23
+msgid "Describe this set of tours"
+msgstr "Descrivi questo insieme di tour"
+
+#: ../amberjackstartportlet.py:22
 msgid "Indicate the tour's identifier you want to run on this portlet"
 msgstr "Indica l'identificatore del tour che vuoi far partire in questo riquadro"
 
-#: ../amberjackchoiceportlet.py:32
+#: ../amberjackchoiceportlet.py:38
 msgid "Indicate the tour's window layout"
 msgstr "Indica il tema della finestra del tour"
 
-#: ../amberjackchoiceportlet.py:24
+#: ../amberjackchoiceportlet.py:30
 msgid "Select the tours that can be choosen by an user on this portlet"
 msgstr "Seleziona il tour che può essere scelto da un utente in questo riquadro"
 
@@ -55,7 +64,11 @@ msgstr "Seleziona il tour che può essere scelto da un utente in questo riquadro
 msgid "The portlet for starting an amberjack demo"
 msgstr "Il riquadro da cui far partire una demo Amberjack"
 
-#: ../amberjackstartportlet.py:22
+#: ../amberjackchoiceportlet.py:24
+msgid "This text will appear as portlet's title"
+msgstr "Questo testo apparità come titolo della portlet"
+
+#: ../amberjackstartportlet.py:21
 msgid "Tour identifier"
 msgstr "Identificatore del tour"
 
@@ -63,11 +76,6 @@ msgstr "Identificatore del tour"
 #: ../amberjackstartportlet.pt:12
 msgid "click_to_start_tour"
 msgstr "Clicca per far partire il tour"
-
-#. Default: "Choose and run a tour"
-#: ../amberjackchoiceportlet.pt:6
-msgid "title_choice_run_the_demo"
-msgstr "Scegli e lancia il tour"
 
 #. Default: "Run the demo"
 #: ../amberjackstartportlet.pt:6
