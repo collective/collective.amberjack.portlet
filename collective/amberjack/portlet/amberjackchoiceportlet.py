@@ -1,13 +1,13 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
 from zope import schema
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, getUtility
 from zope.formlib import form
 from zope.interface import implements
-from zope.schema.vocabulary import getVocabularyRegistry
 
+from collective.amberjack.core.interfaces import ITourManager
+from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
 
 class IAmberjackChoicePortlet(IPortletDataProvider):
@@ -87,24 +87,24 @@ class Renderer(base.Renderer):
                                        name=u'plone_portal_state')
         navigation_root_url = portal_state.navigation_root_url()
         
-        vr = getVocabularyRegistry()
-        voc = vr.get(self.context, "collective.amberjack.core.tours")
+        tour_manager = getUtility(ITourManager)
+        available_tours = tour_manager.getTours(self.context)
         if self.data.tours:
-            tours = self.data.tours
+            tour_ids = self.data.tours
+            tours = [(tour_id, tour)
+                     for tour_id, tour in available_tours
+                     if tour_id in tour_ids]
         else:
-            tours = [term.token for term in voc]
+            tours = available_tours
             
         selected_tours = []
-        for tour_id in tours:
-            try:
-                term = voc.getTermByToken(tour_id)
-                url ='%s?tourId=%s&skinId=%s' % (navigation_root_url, tour_id, self.data.skinId)
-                selected_tours.append({'object': term.value,
-                                       'title': term.title,
-                                       'url': url})
-            except LookupError:
-                pass
-                # continue silently if a tour is not in the vocabulary anymore
+        for tour_id, tour in tours:
+            url ='%s?tourId=%s&skinId=%s' % (navigation_root_url,
+                                             tour_id,
+                                             self.data.skinId)
+            selected_tours.append({'object': tour,
+                                   'title': tour.title,
+                                   'url': url})
 
         self.selected_tours = selected_tours
         return bool(self.selected_tours)
