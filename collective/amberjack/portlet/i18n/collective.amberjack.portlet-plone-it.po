@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.amberjack.portlet\n"
-"POT-Creation-Date: 2009-08-26 17:46+0000\n"
+"POT-Creation-Date: 2009-10-31 12:12+0000\n"
 "PO-Revision-Date: 2009-08-16 09:16+0100\n"
 "Last-Translator: Massimo Azzolini <massimo.azzolini@gmail.com>\n"
 "Language-Team: Italian\n"
