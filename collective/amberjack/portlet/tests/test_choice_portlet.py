@@ -1,5 +1,4 @@
-from zope.component import getUtility, getMultiAdapter, getUtilitiesFor
-from zope.app.component.hooks import setHooks, setSite
+from zope.component import getUtility, getMultiAdapter, getSiteManager 
 
 from plone.portlets.interfaces import IPortletType
 from plone.portlets.interfaces import IPortletManager
@@ -8,22 +7,17 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.portlets.interfaces import IPortletRenderer
 
 from plone.app.portlets.storage import PortletAssignmentMapping
-
 from collective.amberjack.portlet import amberjackstartportlet
-
 from collective.amberjack.portlet.tests.base import TestCase
 
 class TestPortletRegistered(TestCase):
 
     def afterSetUp(self):
-        setHooks()
-        setSite(self.portal)
         self.setRoles(('Manager', ))
 
     def test_portlet_type_registered(self):
-        utils = getUtilitiesFor(IPortletType)
-        print tuple(utils) 
-        portlet = getUtility(
+        sm = getSiteManager()
+        portlet = sm.getUtility(
             IPortletType,
             name='collective.amberjack.portlet.AmberjackChoicePortlet')
         self.assertEquals(portlet.addview,
@@ -32,12 +26,11 @@ class TestPortletRegistered(TestCase):
 class TestPortlet(TestCase):
 
     def afterSetUp(self):
-        setHooks()
-        setSite(self.portal)
         self.setRoles(('Manager', ))
 
     def test_portlet_type_registered(self):
-        portlet = getUtility(
+        sm = getSiteManager()
+        portlet = sm.getUtility(
             IPortletType,
             name='collective.amberjack.portlet.AmberjackChoicePortlet')
         self.assertEquals(portlet.addview,
