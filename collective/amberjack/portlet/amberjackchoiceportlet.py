@@ -114,6 +114,10 @@ class Renderer(base.Renderer):
 
     def user_title(self):
         return self.data.user_title
+    
+    # TODO: return true if tour is completed
+    def completed(self):
+        return bool(1);
          
 
 class AddForm(base.AddForm):
