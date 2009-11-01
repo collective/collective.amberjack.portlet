@@ -16,12 +16,18 @@
            tal:attributes="src string:${portal_url}/++resource++bulb.png" />
       <ol>
         <li tal:repeat="tour view/tours">
-          <a tal:attributes="href tour/url;
-                             class python:tour['object'].steps[0].validate(context, request) and 'tour_inactive' or ''"
-             tal:content="tour/title" />
+          <tal:loop define="tour_invalid python:tour['object'].steps[0].validate(context, request)">
+            <a tal:condition="not:tour_invalid"
+               tal:attributes="href tour/url;
+                               class python:tour_invalid and 'tour_inactive' or ''"
+               tal:content="tour/title" />
+            <span tal:condition="tour_invalid"
+                  tal:attributes="title python:tour_invalid[0]"
+                  tal:content="tour/title" />
             <span class="completed_tour" tal:condition="view/completed">
               <img tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
             </span>
+          </tal:loop>
         </li>
       </ol>
     </dd>
