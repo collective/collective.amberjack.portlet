@@ -10,19 +10,18 @@
         <span class="portletTopRight"></span>
     </dt>
 
-    <dd class="portletItem odd">
+    <dd class="portletItem odd"
+        tal:define="portal_url context/@@plone_portal_state/portal_url">
       <img style="float:right"
-           tal:define="portal_url context/@@plone_portal_state/portal_url"
            tal:attributes="src string:${portal_url}/++resource++bulb.png" />
       <ol>
         <li tal:repeat="tour view/tours">
           <a tal:attributes="href tour/url;
                              class python:tour['object'].steps[0].validate(context, request) and 'tour_inactive' or ''"
              tal:content="tour/title" />
-			 <span class="completed_tour" tal:condition="view/completed">
-			 	<img tal:define="portal_url context/@@plone_portal_state/portal_url"
-                     tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
-			 </span>
+            <span class="completed_tour" tal:condition="view/completed">
+              <img tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
+            </span>
         </li>
       </ol>
     </dd>
