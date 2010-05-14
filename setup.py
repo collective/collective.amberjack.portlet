@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0dev'
+version = '0.9'
 
 setup(name='collective.amberjack.portlet',
       version=version,
-      description="The portlet for starting an amberjack demo",
+      description="Collective amberjack tours portlet",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -20,8 +20,8 @@ setup(name='collective.amberjack.portlet',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='amberjack portlet demo tutorial',
-      author='Massimo Azzolini',
-      author_email='massimo@redturtle.net',
+      author='Massimo Azzolini and contributors',
+      author_email='collective.amberjack.support@lists.coactivate.org',
       url='http://pypi.python.org/pypi/collective.amberjack.portlet',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
@@ -33,12 +33,6 @@ setup(name='collective.amberjack.portlet',
           'collective.amberjack.core',
           'plone.app.portlets',
           'plone.portlets',
-          # 'zope.formlib',
-          # 'zope.i18n',
-          # 'zope.i18nmessageid',
-          # 'zope.interface',
-          # 'zope.schema',
-          # 'Zope2'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
