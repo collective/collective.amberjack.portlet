@@ -30,7 +30,7 @@ setup(name='collective.amberjack.portlet',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'collective.amberjack.core<1.0',
+          'collective.amberjack.core',
           'plone.app.portlets',
           'plone.portlets',
           # -*- Extra requirements: -*-
