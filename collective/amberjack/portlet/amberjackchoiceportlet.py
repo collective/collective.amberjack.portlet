@@ -85,6 +85,9 @@ class Renderer(base.Renderer):
     def available(self):
         portal_state = getMultiAdapter((self.context, self.request),
                                        name=u'plone_portal_state')
+        if portal_state.anonymous():
+            return False
+        
         navigation_root_url = portal_state.navigation_root_url()
         
         tour_manager = getUtility(ITourManager)
