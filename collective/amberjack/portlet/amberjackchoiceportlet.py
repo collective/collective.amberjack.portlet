@@ -120,8 +120,8 @@ class Renderer(base.Renderer):
     
     # TODO: return true if tour is completed
     def completed(self):
-        return bool(1);
-         
+        return False;
+
 
 class AddForm(base.AddForm):
     """Portlet add form.

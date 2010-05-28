@@ -1,10 +1,11 @@
 Changelog
 =========
 
-0.9.1 (??????)
---------------
+0.9.1 (xxxx-xx-xx)
+------------------
 
-- anonymous can't view tour portlet #572137 [fdelia] 
+- anonymous can't view tour portlet #572137 [fdelia]
+- disabled the completed step feature for portlet [keul]
 
 0.9 (2010-04-30)
 ----------------
