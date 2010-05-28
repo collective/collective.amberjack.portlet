@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.9.1 (??????)
+--------------
+
+- anonymous can't view tour portlet #572137 [fdelia] 
+
 0.9 (2010-04-30)
 ----------------
 
