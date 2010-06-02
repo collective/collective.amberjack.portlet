@@ -1,4 +1,4 @@
-from zope.component import getUtility, getMultiAdapter, getSiteManager 
+from zope.component import getUtility, getMultiAdapter, getSiteManager
 
 from plone.portlets.interfaces import IPortletType
 from plone.portlets.interfaces import IPortletManager
@@ -7,13 +7,13 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.portlets.interfaces import IPortletRenderer
 
 from plone.app.portlets.storage import PortletAssignmentMapping
-from collective.amberjack.portlet import amberjackstartportlet
+from collective.amberjack.portlet import amberjackchoiceportlet
 from collective.amberjack.portlet.tests.base import TestCase
 
 class TestPortletRegistered(TestCase):
 
     def afterSetUp(self):
-        self.setRoles(('Manager', ))
+        self.setRoles(('Manager',))
 
     def test_portlet_type_registered(self):
         sm = getSiteManager()
@@ -26,7 +26,7 @@ class TestPortletRegistered(TestCase):
 class TestPortlet(TestCase):
 
     def afterSetUp(self):
-        self.setRoles(('Manager', ))
+        self.setRoles(('Manager',))
 
     def test_portlet_type_registered(self):
         sm = getSiteManager()
@@ -38,7 +38,7 @@ class TestPortlet(TestCase):
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
-        portlet = amberjackstartportlet.Assignment()
+        portlet = amberjackchoiceportlet.Assignment()
         self.failUnless(IPortletAssignment.providedBy(portlet))
         self.failUnless(IPortletDataProvider.providedBy(portlet.data))
 
@@ -60,16 +60,16 @@ class TestPortlet(TestCase):
 
         self.assertEquals(len(mapping), 1)
         self.failUnless(isinstance(mapping.values()[0],
-                                   amberjackstartportlet.Assignment))
+                                   amberjackchoiceportlet.Assignment))
 
     def test_invoke_edit_view(self):
         # NOTE: This test can be removed if the portlet has no edit form
         mapping = PortletAssignmentMapping()
         request = self.folder.REQUEST
 
-        mapping['foo'] = amberjackstartportlet.Assignment()
+        mapping['foo'] = amberjackchoiceportlet.Assignment()
         editview = getMultiAdapter((mapping['foo'], request), name='edit')
-        self.failUnless(isinstance(editview, amberjackstartportlet.EditForm))
+        self.failUnless(isinstance(editview, amberjackchoiceportlet.EditForm))
 
     def test_obtain_renderer(self):
         context = self.folder
@@ -79,17 +79,17 @@ class TestPortlet(TestCase):
                              context=self.portal)
 
         # TODO: Pass any keyword arguments to the Assignment constructor
-        assignment = amberjackstartportlet.Assignment()
+        assignment = amberjackchoiceportlet.Assignment()
 
         renderer = getMultiAdapter(
             (context, request, view, manager, assignment), IPortletRenderer)
-        self.failUnless(isinstance(renderer, amberjackstartportlet.Renderer))
+        self.failUnless(isinstance(renderer, amberjackchoiceportlet.Renderer))
 
 
 class TestRenderer(TestCase):
 
     def afterSetUp(self):
-        self.setRoles(('Manager', ))
+        self.setRoles(('Manager',))
 
     def renderer(self, context=None, request=None, view=None, manager=None,
                  assignment=None):
@@ -101,14 +101,14 @@ class TestRenderer(TestCase):
 
         # TODO: Pass any default keyword arguments to the Assignment
         # constructor.
-        assignment = assignment or amberjackstartportlet.Assignment()
+        assignment = assignment or amberjackchoiceportlet.Assignment()
         return getMultiAdapter((context, request, view, manager, assignment),
                                IPortletRenderer)
 
     def test_render(self):
         # TODO: Pass any keyword arguments to the Assignment constructor.
         r = self.renderer(context=self.portal,
-                          assignment=amberjackstartportlet.Assignment())
+                          assignment=amberjackchoiceportlet.Assignment())
         r = r.__of__(self.folder)
         r.update()
         output = r.render()
@@ -118,7 +118,7 @@ class TestValidators(TestCase):
     """Test to ensure only valid tours are in portlet"""
 
     def afterSetUp(self):
-        self.setRoles(('Manager', ))
+        self.setRoles(('Manager',))
 
     def test_pass(self):
         pass

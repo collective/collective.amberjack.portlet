@@ -21,21 +21,6 @@
 
   <!-- Register the portlet -->
 
-  <!-- If the portlet has no configurable parameters, you can remove
-       the EditForm declaration in amberjackstartportlet.py and delete
-       the 'editview' attribute from this statement.
-  -->
-
-  <plone:portlet
-      name="collective.amberjack.portlet.AmberjackStartPortlet"
-      interface=".amberjackstartportlet.IAmberjackStartPortlet"
-      assignment=".amberjackstartportlet.Assignment"
-      view_permission="zope2.View"
-      edit_permission="cmf.ManagePortal"
-      renderer=".amberjackstartportlet.Renderer"
-      addview=".amberjackstartportlet.AddForm"
-      editview=".amberjackstartportlet.EditForm"
-      />
 
   <plone:portlet
       name="collective.amberjack.portlet.AmberjackChoicePortlet"

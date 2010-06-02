@@ -6,7 +6,7 @@ from zope.component import getMultiAdapter, getUtility
 from zope.formlib import form
 from zope.interface import implements
 
-from collective.amberjack.core.interfaces import ITourManager
+from collective.amberjack.core.deprecated.interfaces import ITourManager
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
 
@@ -36,8 +36,8 @@ class IAmberjackChoicePortlet(IPortletDataProvider):
     skinId = schema.Choice(title=_(u"Choose the skin"),
                               description=_(u"Indicate the tour's window layout"),
                               vocabulary="collective.amberjack.skins",
-                              default="model_t")
-    
+                              default="safari")
+
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -73,12 +73,12 @@ class Renderer(base.Renderer):
     """
 
     render = ViewPageTemplateFile('amberjackchoiceportlet.pt')
-    
-    def __init__(self, context, request, view, manager, data): 
-        self.context = context 
-        self.request = request 
-        self.view = view 
-        self.manager = manager 
+
+    def __init__(self, context, request, view, manager, data):
+        self.context = context
+        self.request = request
+        self.view = view
+        self.manager = manager
         self.data = data
 
     @property
@@ -87,9 +87,9 @@ class Renderer(base.Renderer):
                                        name=u'plone_portal_state')
         if portal_state.anonymous():
             return False
-        
+
         navigation_root_url = portal_state.navigation_root_url()
-        
+
         tour_manager = getUtility(ITourManager)
         available_tours = tour_manager.getTours(self.context)
         if self.data.tours:
@@ -99,10 +99,10 @@ class Renderer(base.Renderer):
                      if tour_id in tour_ids]
         else:
             tours = available_tours
-            
+
         selected_tours = []
         for tour_id, tour in tours:
-            url ='%s?tourId=%s&skinId=%s' % (navigation_root_url,
+            url = '%s?tourId=%s&skinId=%s' % (navigation_root_url,
                                              tour_id,
                                              self.data.skinId)
             selected_tours.append({'object': tour,
@@ -111,13 +111,13 @@ class Renderer(base.Renderer):
 
         self.selected_tours = selected_tours
         return bool(self.selected_tours)
-    
+
     def tours(self):
         return self.selected_tours
 
     def user_title(self):
         return self.data.user_title
-    
+
     # TODO: return true if tour is completed
     def completed(self):
         return False;
@@ -134,7 +134,7 @@ class AddForm(base.AddForm):
 
     def create(self, data):
         return Assignment(**data)
-    
+
 
 class EditForm(base.EditForm):
     """Portlet edit form.
