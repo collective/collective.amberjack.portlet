@@ -6,6 +6,7 @@ from zope.component import getMultiAdapter, getUtility
 from zope.formlib import form
 from zope.interface import implements
 
+from collective.amberjack.core.interfaces import ITour
 from collective.amberjack.core.deprecated.interfaces import ITourManager
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
@@ -87,8 +88,9 @@ class Renderer(base.Renderer):
                                        name=u'plone_portal_state')
         if portal_state.anonymous():
             return False
-
-        navigation_root_url = portal_state.navigation_root_url()
+        
+        rootTool = getUtility(ITour, 'collective.amberjack.core.toursroot')
+        navigation_root_url = rootTool.getToursRoot(self.context, self.request)
 
         tour_manager = getUtility(ITourManager)
         available_tours = tour_manager.getTours(self.context)
