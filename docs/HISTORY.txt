@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1a (2010-??-??) unreleased
+------------------ 
+
+- added a control for use with sandbox [mirco]
+
 0.9.1 (xxxx-xx-xx)
 ------------------
 

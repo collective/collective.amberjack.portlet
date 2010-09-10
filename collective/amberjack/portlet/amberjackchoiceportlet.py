@@ -91,7 +91,7 @@ class Renderer(base.Renderer):
         
         rootTool = getUtility(ITour, 'collective.amberjack.core.toursroot')
         navigation_root_url = rootTool.getToursRoot(self.context, self.request)
-
+        
         tour_manager = getUtility(ITourManager)
         available_tours = tour_manager.getTours(self.context)
         if self.data.tours:
@@ -113,6 +113,10 @@ class Renderer(base.Renderer):
 
         self.selected_tours = selected_tours
         return bool(self.selected_tours)
+    
+    def root_url(self):
+        rootTool = getUtility(ITour, 'collective.amberjack.core.toursroot')
+        return rootTool.getToursRoot(self.context, self.request)
 
     def tours(self):
         return self.selected_tours

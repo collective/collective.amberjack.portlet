@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>0.9</version>
+  <version>1.1a-unreleased</version>
   <dependencies>
     <dependency>profile-collective.amberjack.core:default</dependency>
   </dependencies>

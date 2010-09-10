@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.9.1'
+version = '1.1a-unreleased'
 
 setup(name='collective.amberjack.portlet',
       version=version,

@@ -12,24 +12,33 @@
 
     <dd class="portletItem odd"
         tal:define="portal_url context/@@plone_portal_state/portal_url">
-      <img style="float:right"
-           tal:attributes="src string:${portal_url}/++resource++bulb.png" />
-      <ol>
-        <li tal:repeat="tour view/tours">
-          <tal:loop define="tour_invalid python:tour['object'].steps[0].validate(context, request)">
-            <a tal:condition="not:tour_invalid"
-               tal:attributes="href tour/url;
-                               class python:tour_invalid and 'tour_inactive' or ''"
-               tal:content="tour/title" />
-            <span tal:condition="tour_invalid"
-                  tal:attributes="title python:tour_invalid[0]"
-                  tal:content="tour/title" />
-            <span class="completed_tour" tal:condition="view/completed">
-              <img tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
-            </span>
-          </tal:loop>
-        </li>
-      </ol>
+      <tal:has_root_url condition="view/root_url">
+	      <img style="float:right"
+	           tal:attributes="src string:${portal_url}/++resource++bulb.png" />
+	      <ol>
+	        <li tal:repeat="tour view/tours">
+	          <tal:loop define="tour_invalid python:tour['object'].steps[0].validate(context, request)">
+	            <a tal:condition="not:tour_invalid"
+	               tal:attributes="href tour/url;
+	                               class python:tour_invalid and 'tour_inactive' or ''"
+	               tal:content="tour/title" />
+	            <span tal:condition="tour_invalid"
+	                  tal:attributes="title python:tour_invalid[0]"
+	                  tal:content="tour/title" />
+	            <span class="completed_tour" tal:condition="view/completed">
+	              <img tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
+	            </span>
+	          </tal:loop>
+	        </li>
+	      </ol>
+      </tal:has_root_url>
+      <tal:not_root_url condition="not:view/root_url">
+      		<img style="float:right"
+	           tal:attributes="src string:${portal_url}/++resource++error.png" />
+      		<span>
+      		Sorry!<br/>Amberjack is configured to work with a sandbox but yours user hasn't the member folder.
+      		</span>
+      </tal:not_root_url>
     </dd>
 
     <span class="portletBottomLeft"></span>

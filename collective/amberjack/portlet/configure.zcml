@@ -34,6 +34,7 @@
       />
 
   <browser:resource name="bulb.png" file="bulb.png" />
+  <browser:resource name="error.png" file="error.png" />
   <browser:resource name="completed_tour.gif" file="completed_tour.gif" />
 
 </configure>
