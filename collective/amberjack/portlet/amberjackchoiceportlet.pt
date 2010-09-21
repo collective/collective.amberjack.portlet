@@ -17,7 +17,7 @@
 	           tal:attributes="src string:${portal_url}/++resource++bulb.png" />
 	      <ol>
 	        <li tal:repeat="tour view/tours">
-	          <tal:loop define="tour_invalid python:tour['object'].steps[0].validate(context, request)">
+	          <tal:loop define="tour_invalid python:tour['object'].validate(context, request)">
 	            <a tal:condition="not:tour_invalid"
 	               tal:attributes="href tour/url;
 	                               class python:tour_invalid and 'tour_inactive' or ''"

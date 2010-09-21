@@ -5,6 +5,7 @@ Changelog
 ------------------ 
 
 - added a control for use with sandbox [mirco]
+- modified the check for launch the tours; from tours and not from the first step [mirco]
 
 0.9.1 (xxxx-xx-xx)
 ------------------
