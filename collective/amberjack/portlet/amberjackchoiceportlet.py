@@ -113,7 +113,11 @@ class Renderer(base.Renderer):
 
         self.selected_tours = selected_tours
         return bool(self.selected_tours)
-    
+
+    def validate_tour(self, tour_dict):
+        tour = tour_dict.get('object')
+        return tour.validate(self.context, self.request)
+
     def root_url(self):
         rootTool = getUtility(ITour, 'collective.amberjack.core.toursroot')
         return rootTool.getToursRoot(self.context, self.request)
