@@ -7,7 +7,7 @@ from zope.formlib import form
 from zope.interface import implements
 
 from collective.amberjack.core.interfaces import ITour
-from collective.amberjack.core.deprecated.interfaces import ITourManager
+from collective.amberjack.core.interfaces import ITourManager
 from collective.amberjack.portlet import AmberjackPortletMessageFactory as _
 
 
