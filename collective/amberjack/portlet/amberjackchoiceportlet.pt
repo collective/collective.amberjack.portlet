@@ -36,7 +36,7 @@
       		<img style="float:right"
 	           tal:attributes="src string:${portal_url}/++resource++error.png" />
       		<span>
-      		Sorry!<br/>Amberjack is configured to work with a sandbox but yours user hasn't the member folder.
+      		Sorry!<br/>Amberjack is configured to work with a sandbox but your user hasn't the member folder.
       		</span>
       </tal:not_root_url>
     </dd>
