@@ -4,10 +4,16 @@ Changelog
 1.1a (2010-09-21)
 ----------------- 
 
-- added a control for use with sandbox [mirco]
-- modified the check for launch the tours; from tours and not from the first step [mirco]
-- add simple validation method [amleczko]
-- update imports [amleczko]
+- added a control for use with sandbox
+  [mirco]
+- modified the check for launch the tours; from tours and not from the first step
+  [mirco]
+- add simple validation method
+  [amleczko]
+- update imports 
+  [amleczko]
+- add filename sorting when tours not selected manualy
+  [amleczko]
 
 0.9.1 (xxxx-xx-xx)
 ------------------

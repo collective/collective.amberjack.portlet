@@ -101,8 +101,11 @@ class Renderer(base.Renderer):
                      if tour_id in tour_ids]
         else:
             tours = available_tours
+            #add simple _filename sorting
+            tours.sort(lambda x,y: cmp(x[1]._filename, y[1]._filename))
 
         selected_tours = []
+
         for tour_id, tour in tours:
             url = '%s?tourId=%s&skinId=%s' % (navigation_root_url,
                                              tour_id,
