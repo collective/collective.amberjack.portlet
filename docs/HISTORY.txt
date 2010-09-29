@@ -4,6 +4,10 @@ Changelog
 1.1a (2010-09-21)
 ----------------- 
 
+- added skins for js and images 
+  [mirco]
+- added function to save in a cookie the next tour
+  [mirco]
 - added a control for use with sandbox
   [mirco]
 - modified the check for launch the tours; from tours and not from the first step

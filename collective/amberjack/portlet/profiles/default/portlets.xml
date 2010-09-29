@@ -17,7 +17,7 @@
       name="amberjack-choice-portlet"
       category="context"
       key="/"
-      manager="plone.rightcolumn"
+      manager="plone.leftcolumn"
       type="collective.amberjack.portlet.AmberjackChoicePortlet">
   </assignment>
 
