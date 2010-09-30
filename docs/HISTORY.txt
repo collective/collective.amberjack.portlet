@@ -19,7 +19,7 @@ Changelog
 - add filename sorting when tours not selected manualy
   [amleczko]
 
-0.9.1 (xxxx-xx-xx)
+0.9.1 (unreleased)
 ------------------
 
 - anonymous can't view tour portlet #572137 [fdelia]
