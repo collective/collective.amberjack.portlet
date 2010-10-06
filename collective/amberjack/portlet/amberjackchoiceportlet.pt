@@ -18,11 +18,11 @@
 	      <ol>
 	        <li tal:repeat="tour view/tours">
 	          <tal:loop define="tour_invalid python: view.validate_tour(tour);
-	          					next_tour_id python:view.next_tour_id(tour)">
+	          					next_tours_id python:view.next_tours_id(tour)">
 	            <a tal:condition="not:tour_invalid"
 	               tal:attributes="href tour/url;
 	                               class python:tour_invalid and 'tour_inactive' or '';
-	                               onclick string:set_cookie('$next_tour_id')"
+	                               onclick string:set_cookie('$next_tours_id')"
 	               tal:content="tour/title" />
 	            <span tal:condition="tour_invalid"
 	                  tal:attributes="title python:tour_invalid[0]"

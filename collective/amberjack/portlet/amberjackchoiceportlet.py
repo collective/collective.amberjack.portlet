@@ -128,12 +128,18 @@ class Renderer(base.Renderer):
     def tours(self):
         return self.selected_tours
     
-    def next_tour_id(self,current_tour):
+    def next_tours_id(self,current_tour):
+        list = ""
         for tour in self.selected_tours[self.selected_tours.index(current_tour)+1:]:
+            if list:
+                list = list + "|"
             tour_obj = tour.get('object')
-            valid = tour_obj.validate(self.context, self.request)
-            if not valid:
-                return tour_obj.tourId
+            list = list + tour_obj.tourId
+        return list
+#            tour_obj = tour.get('object')
+#            valid = tour_obj.validate(self.context, self.request)
+#            if not valid:
+#                return tour_obj.tourId
 
     def user_title(self):
         return self.data.user_title

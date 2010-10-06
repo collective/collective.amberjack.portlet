@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.1 (2010-??-??)
+----------------- 
+
+- moved the check procedure to identify the next tour from the portlet into viewlet 
+  [mirco]
+- updated the cookie that save the next tour; now we save the list of all tour after the current one.
+  [mirco]
+
 1.1a (2010-09-21)
 ----------------- 
 
