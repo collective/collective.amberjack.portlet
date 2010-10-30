@@ -37,7 +37,7 @@ class IAmberjackChoicePortlet(IPortletDataProvider):
     skinId = schema.Choice(title=_(u"Choose the skin"),
                               description=_(u"Indicate the tour's window layout"),
                               vocabulary="collective.amberjack.skins",
-                              default="safari")
+                              default="sunburst")
 
 
 class Assignment(base.Assignment):
@@ -49,7 +49,7 @@ class Assignment(base.Assignment):
 
     implements(IAmberjackChoicePortlet)
 
-    def __init__(self, user_title=None, tours=None, skinId="model_t"):
+    def __init__(self, user_title=None, tours=None, skinId="sunburst"):
         if tours is None:
             self.tours = []
         else:

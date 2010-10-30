@@ -8,6 +8,8 @@ Changelog
   [mirco]
 - updated the cookie that save the next tour; now we save the list of all tour after the current one.
   [mirco]
+- set sunburst theme as default
+  [nekorin]
 
 1.1a (2010-09-21)
 ----------------- 
