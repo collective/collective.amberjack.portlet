@@ -24,10 +24,13 @@
 	                               class python:tour_invalid and 'tour_inactive' or '';
 	                               onclick string:set_cookie('$next_tours_id')"
 	               tal:content="tour/title" />
-	            <span tal:condition="tour_invalid"
-	                  tal:attributes="title python:tour_invalid[0]"
-	                  tal:content="tour/title" />
-	            <span class="completed_tour" tal:condition="view/completed">
+                <p tal:condition="tour_invalid"
+                   class="invalid_tour">
+                    <span tal:content="tour/title"/><br />
+                    <span tal:content="python:tour_invalid[0]" 
+                        class="discreet" />
+	            </p>
+                <span class="completed_tour" tal:condition="view/completed">
 	              <img tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
 	            </span>
 	          </tal:loop>
