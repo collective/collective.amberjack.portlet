@@ -26,7 +26,7 @@
 	               tal:content="tour/title" />
                 <p tal:condition="tour_invalid"
                    class="invalid_tour">
-                    <span tal:content="tour/title"/><br />
+                    <span tal:content="tour/title"/>
                     <span tal:content="python:tour_invalid[0]" 
                         class="discreet" />
 	            </p>
