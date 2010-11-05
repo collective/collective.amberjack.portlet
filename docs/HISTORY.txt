@@ -10,6 +10,8 @@ Changelog
   [mirco]
 - set sunburst theme as default
   [nekorin]
+- changed a js file name to do not make a conflict.
+  [mirco]
 
 1.1a (2010-09-21)
 ----------------- 
