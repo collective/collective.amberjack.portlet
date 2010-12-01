@@ -1,11 +1,11 @@
 # Spanish translations for collective.amberjack.portlet package
 # Traducciones al EspaÃ±ol del producto collective.amberjack.portlet package.
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2009.
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.amberjack.portlet\n"
 "POT-Creation-Date: 2009-10-31 12:12+0000\n"
-"PO-Revision-Date: 2009-10-31 07:43-0400\n"
+"PO-Revision-Date: 2010-12-01 17:49-0400\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <plone-conosur@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Default: "Amberjack choice portlet"
 #: ../profiles/default/portlets.xml
 msgid "Amberjack choice portlet"
-msgstr "Elegir Portlet Amberjack"
+msgstr "Portlet de selección Amberjack"
 
 #. Default: "Amberjack start portlet"
 #: ../profiles/default/portlets.xml
@@ -34,7 +34,7 @@ msgstr "Portlet de inicio Amberjack"
 #. Default: "The portlet for starting a demo from a list"
 #: ../profiles/default/portlets.xml
 msgid "The portlet for starting a demo from a list"
-msgstr "Este portlet para iniciar un demo desde una lista"
+msgstr "El portlet para dar inicio a la demostración Amberjack"
 
 #. Default: "The portlet for starting an amberjack demo"
 #: ../profiles/default/portlets.xml
