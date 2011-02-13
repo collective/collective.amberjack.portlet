@@ -18,17 +18,16 @@
           <ol>
             <li tal:repeat="tour view/tours">
               <tal:loop define="tour_invalid python: view.validate_tour(tour);
-                                  next_tours_id python:view.next_tours_id(tour)">
+                                next_tours_id python:view.next_tours_id(tour)">
                 <a tal:condition="not:tour_invalid"
                    tal:attributes="href tour/url;
-                                   class python:tour_invalid and 'tour_inactive' or '';
                                    onclick string:set_cookie('$next_tours_id')"
                    tal:content="tour/title" />
                 <p tal:condition="tour_invalid"
                    class="invalid_tour">
                     <span tal:content="tour/title"/>
                     <span tal:content="python:tour_invalid[0]" 
-                        class="discreet" />
+                          class="discreet" />
                 </p>
                 <span class="completed_tour" tal:condition="view/completed">
                   <img tal:attributes="src string:${portal_url}/++resource++completed_tour.gif" />
