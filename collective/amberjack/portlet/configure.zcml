@@ -30,7 +30,7 @@
       interface=".amberjackchoiceportlet.IAmberjackChoicePortlet"
       assignment=".amberjackchoiceportlet.Assignment"
       view_permission="zope2.View"
-      edit_permission="cmf.ManagePortal"
+      edit_permission="plone.app.portlets.ManagePortlets"
       renderer=".amberjackchoiceportlet.Renderer"
       addview=".amberjackchoiceportlet.AddForm"
       editview=".amberjackchoiceportlet.EditForm"

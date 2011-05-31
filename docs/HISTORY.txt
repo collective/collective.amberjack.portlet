@@ -3,7 +3,9 @@ Changelog
 
 1.1 (2010-11-05)
 ---------------- 
-
+- Change the edit/add portlet permission to plone.app.portlets.ManagePortlets.
+  Allows SiteAdmin to manage it.
+  [ggozad]
 - moved the check procedure to identify the next tour from the portlet into viewlet 
   [mirco]
 - updated the cookie that save the next tour; now we save the list of all tour after the current one.
