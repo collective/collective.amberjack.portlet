@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-10-31 12:12+0000\n"
+"POT-Creation-Date: 2011-06-03 15:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#. Default: "Amberjack choice portlet"
 #: ../profiles/default/portlets.xml
 msgid "Amberjack choice portlet"
 msgstr ""
 
-#. Default: "Amberjack start portlet"
-#: ../profiles/default/portlets.xml
-msgid "Amberjack start portlet"
-msgstr ""
-
-#. Default: "The portlet for starting a demo from a list"
 #: ../profiles/default/portlets.xml
 msgid "The portlet for starting a demo from a list"
-msgstr ""
-
-#. Default: "The portlet for starting an amberjack demo"
-#: ../profiles/default/portlets.xml
-msgid "The portlet for starting an amberjack demo"
 msgstr ""
 
