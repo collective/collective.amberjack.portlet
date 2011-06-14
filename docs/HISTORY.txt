@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.1.1 (2010-??-??) UNRELEASED
+------------------ 
+
+- included plone.app.portlets before the zcml registration of the portlet that sometime is loaded before of the used permission.
+  [mirco]
+
 1.1 (2010-11-05)
 ---------------- 
 

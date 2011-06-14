@@ -24,6 +24,7 @@
 
   <!-- Register the portlet -->
 
+  <include package="plone.app.portlets" />
 
   <plone:portlet
       name="collective.amberjack.portlet.AmberjackChoicePortlet"
