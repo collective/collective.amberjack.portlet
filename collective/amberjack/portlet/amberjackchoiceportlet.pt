@@ -19,7 +19,8 @@
 	        <li tal:repeat="tour view/tours">
 	          <tal:loop define="tour_invalid python: view.validate_tour(tour);
 	          					next_tours_id python:view.next_tours_id(tour)">
-	            <a tal:condition="not:tour_invalid"
+	            <a class="ajTourLink"
+				   tal:condition="not:tour_invalid"
 	               tal:attributes="href tour/url;
 	                               onclick string:set_cookie('$next_tours_id')"
 	               tal:content="tour/title" />
